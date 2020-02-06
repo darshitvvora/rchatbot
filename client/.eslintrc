@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "airbnb/base",
+    "angular"
+  ],
+  "rules": {
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "angular/no-service-method": "off"
+  }
+}

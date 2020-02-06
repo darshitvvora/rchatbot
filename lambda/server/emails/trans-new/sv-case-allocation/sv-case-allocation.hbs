@@ -1,0 +1,107 @@
+<style>
+  .subCaseView table {
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 1px solid thin #c1c1c1;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: left;
+    table-layout:fixed;
+    border-collapse: collapse;
+  }
+  
+  .subCaseView td:not(.normalText), th {
+    text-transform: capitalize;
+    text-align: left;
+    vertical-align: center;
+    text-overflow: ellipsis;
+    border: 2px solid thin #c1c1c1;
+    word-wrap: break-word;
+    padding: 3px 4px;
+    font-size: 13px;
+  }
+  
+  .subCaseView table tr:nth-child(even) {
+    background: #e5e5e5;
+  }
+  
+  .thead {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+    border-left: 1px solid thin #a3a3a3;
+    background: #5585b9;
+  }
+  
+  .subCaseView hr {
+    border-top: 1px dotted black;
+  }
+  
+  .subCaseView .no-break {
+    page-break-inside: avoid !important;
+  } 
+  
+  .subCaseView table,tr,td,div {
+    page-break-inside: auto !important;
+  }
+  
+  .subCaseView th {
+    border-right: 1px solid #c1c1c1 !important;
+    width: 30%;
+  }
+</style>
+    
+<table class="main" cellpadding="0" cellspacing="0" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; text-align: center; width: 100%; background: #ffffff;padding: 0px;" width="100%">
+  <tbody>
+    <tr>
+      <td class="container" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto !important; max-width: 600px;" valign="top">
+        <table class="main" cellspacing="0" cellpadding="0" width="100%" style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #fff;border: 1px solid #eeecec;">
+          <tr>
+            <td style='padding: 15px 20px 10px;color:#2f2e2d;text-align: left;'>
+              Hi {{vendorName}},
+            </td>
+          </tr>
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: left;'>
+              A new case has been allocated to you by - {{vendorAdmin.Client.name}}
+            </td>
+          </tr>
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: left;'> 
+              Please find the details of the candidate below:
+            </td>
+          </tr>
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: center;'> 
+              <h3>Candidate Information</h3>
+            </td>
+          </tr>
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: left;' class='subCaseView'> 
+              {{{html}}}
+            </td>
+          </tr>
+          {{#if comment}}
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: left; padding-top: 30px;vertical-align: top;'> 
+              <b>Comment:</b>
+            </td>
+          </tr>
+          <tr>
+            <td style='padding:5px 20px;color: #41403f;text-align: left;'> 
+              {{{comment}}}
+            </td>
+          </tr>
+          {{/if}}          
+          <tr>
+            <td style="font: 14px Helvetica, Arial, sans-serif; padding: 25px 0 25px;text-align: center;">
+              <a href='{{{publicSubCaseLink}}}' target='_blank' style='text-decoration: none; cursor: pointer; line-height: 35px; border-radius: 3px;padding: 12px 16px;
+                color: #fff;background-color: #507fc0;border-color: #23ad44;'>
+                <span>Submit Report</span>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

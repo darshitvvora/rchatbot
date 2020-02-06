@@ -1,0 +1,19 @@
+script(type='text/ng-template' id='navbar-profile-template.html')
+  .wrapper-xs.bg-white-only
+    .hbox
+      .col.thumb-lg
+        div.b-a.bg-light.text-center.m-l-md.m-t.b-info(
+          style='border-radius: 50%;width:40px;height: 40px;'
+          ng-click='$ctrl.isProfPopOpen = !$ctrl.isProfPopOpen;'
+        )
+          a.m-t-lg.text-info.font-lg.text-u-c(
+            style='color: #5585B9;font-size: 26px;'
+            ng-bind='$ctrl.user.name.substr(0, 1)'
+          )
+      .col
+        .w-full.text-ellipsis.m-t-xs.text-dark(ng-bind='$ctrl.user.name' title='{{$ctrl.user.name}}' ng-click='$ctrl.isProfPopOpen =!$ctrl.isProfPopOpen;')
+        .w-full.text-ellipsis.m-t-xs.text-dark(ng-bind='$ctrl.user.email;' title='{{$ctrl.user.email}}' ng-click='$ctrl.isProfPopOpen =!$ctrl.isProfPopOpen;')
+        .w-full.m-t-xs: a.text-xs(style='color: #3175C9' ng-href='{{$ctrl.settings.changePassword}}' ng-click='$ctrl.isProfPopOpen =!$ctrl.isProfPopOpen;') Change Password
+    .hbox
+      .col.w-full
+        .w-full: span.m-t-sm.pull-right.btn.btn-sm.bg-gray.b-a.b-gray(style='color: #333' ng-click='$ctrl.logout();$ctrl.isProfPopOpen =!$ctrl.isProfPopOpen;') Logout

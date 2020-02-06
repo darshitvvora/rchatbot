@@ -1,0 +1,13 @@
+{
+  "name": "Quezx Admin",
+  "short_name": "admin_quezx",
+  "icons": [{
+    "src": "assets/images/logo-d3e8cb0ce1.svg",
+    "sizes": "192x192",
+    "type": "image/svg+xml"
+  }],
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "689513674253",
+  "gcm_user_visible_only": true
+}

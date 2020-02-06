@@ -1,0 +1,60 @@
+<table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%; background: #ffffff;max-width: 600px;margin: 0 auto;" width="100%">
+  <tbody>
+  <tr style="padding:0;border:0;margin:0;">
+    <td class="wrapper" style="box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-size: 14px; vertical-align: top; padding: 5px;text-align: left" valign="top">
+      <div>
+        <div style="padding-bottom: 10px;">
+          <span style="background-color: #FFFFFF;font-size: 14px;font-weight: bold;">Hi {{userName}},</span>
+        </div>
+      </div>
+      <div style="font-size: 15px;font-weight: 300; color: #666;">Please find the update on your cases below:</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      {{#each userList}}
+        <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%;padding: 10px 0;" width="100%">
+          <tr style="padding:0;border:0;margin:0;">
+            <td valign="top">
+              <div>{{name}}</div>
+              <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%;border: 1px solid lightgray;border-radius: 5px;padding: 8px 5px;" width="100%">
+                {{#each applicants}}
+                <tr style="padding:0;border:0;margin:0;">
+                  <td valign="top" style="text-align: center;padding: 5px 0;width: 30px;">
+                    <img width="20px;" height="20px;" src="https://cdn.quezx.com/img/quezx-portal/mail/user.png" alt="view_applicant">
+                  </td>
+                  <td valign="top">
+                    <table style="box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0; mso-table-rspace: 0; width: 100%;" width="100%">
+                      <tr style="padding:0;border:0;margin:0;">
+                        <td valign="top">
+                          <a href="{{{link}}}" style="color: #008bf3;font-weight: bold;text-decoration: none;">{{name}}</a>
+                        </td>
+                      </tr>
+                      <tr style="padding:0;border:0;margin:0;">
+                        <td valign="top" style="color: #666;">{{state}}</td>
+                      </tr>
+                      <tr style="padding:0;border:0;margin:0;">
+                        <td valign="top" style="color: #666;">{{{comment}}}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                {{#if @last}}
+                  <tr></tr>
+                {{else}}
+                  <tr>
+                    <td valign="top" colspan="2">
+                      <div style="border-bottom: 1px solid #ccc;"></div>
+                    </td>
+                  </tr>
+                {{/if}}
+                {{/each}}
+              </table>
+            </td>
+          </tr>
+        </table>
+    {{/each}}
+    </td>
+  </tr>
+  </tbody>
+</table>

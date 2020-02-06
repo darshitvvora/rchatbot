@@ -1,0 +1,9 @@
+dist
+npm-debug.log
+coverage
+.jshintignore
+.jshintrc
+logs/*
+.idea
+node_modules
+.env

@@ -1,0 +1,10 @@
+script(type='text/ng-template' id='navbar-template.html'): .wrapper-sm
+  a.col-xs-4.text-center.no-padder.m-b-md.hv-border-gray.m-r-sm.padder-v(
+    href='{{$ctrl.redirectUrl}}'
+    style='width: 68px;'
+    target='_blank'
+    ng-click='$ctrl.isOpen = !$ctrl.isOpen'
+  )
+    div(style='padding: 5px 4px;')
+      img(src='/assets/images/q-hire.svg', style='width: 60px;')
+    .m-b-xs.m-t-xs.text-center.text-black(style='font-size: 12px;color: #333;', ng-bind='$ctrl.appLabel')

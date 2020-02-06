@@ -1,0 +1,13 @@
+.app(ng-class='$ctrl.appClass')
+  navbar(settings='$ctrl.app.settings')
+  img(
+    ng-if='$ctrl.app.isUnRegistered'      
+    style='-ms-interpolation-mode: bicubic; margin: auto;vertical-align: middle;display: inline-block;'
+    src='https://cdn.quezx.com/img/quezx-portal/background/unregisteredClient.png'
+    width='100%'
+    height='100%'
+  )
+  .content(ng-hide='$ctrl.app.isUnRegistered')
+    .app-content
+      a.off-screen-toggle.hide(href='')
+      div(ui-view='')

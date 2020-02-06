@@ -1,0 +1,318 @@
+@mixin color-variant($bg-color: #555, $lt-percent: 10%, $lter-percent: 15%, $dk-percent: 10%, $dker-percent: 15%) {
+  background-color: $bg-color;
+  &.lt,
+  .lt {
+    background-color: lighten($bg-color, 5%);
+  }
+  &.lter,
+  .lter {
+    background-color: lighten($bg-color, 7.25%);
+  }
+  &.dk,
+  .dk {
+    background-color: darken($bg-color, 5%);
+  }
+  &.dker,
+  .dker {
+    background-color: darken($bg-color, 10%);
+  }
+  &.bg,
+  .bg{
+    background-color: $bg-color;
+  }
+}
+
+@mixin color-schema($bg-color: #555, $percent: 15%, $sat-percent: 100%) {
+  background-color: saturate(darken($bg-color, $percent), $sat-percent);
+}
+
+@mixin font-variant($bg-color) {
+  $font-color:  desaturate(lighten($bg-color,40%), 10%);
+  $link-color:  desaturate(lighten($bg-color,50%), 10%);
+  $hover-color: #fff;
+  color: $font-color;
+  a {
+    color: $link-color;
+    &:hover{
+      color: $hover-color;
+    }
+    &.list-group-item{
+      &:hover,
+      &:focus{
+        background-color: inherit;
+      }
+    }
+  }
+  .nav {
+    > li {
+      &:hover,
+      &:focus,
+      &.active{
+        > a{
+          color: $hover-color;
+          @include color-schema($bg-color, 5%, 2.5%);
+        }
+      }
+      > a{
+        color: darken($link-color, 5%);
+        &:hover,
+        &:focus{
+          @include color-schema($bg-color, 3%, 2.5%);
+        }
+      }
+    }
+    .open > a{
+      @include color-schema($bg-color, 5%, 2.5%);
+    }
+  }
+  .caret{
+    border-top-color: $font-color;
+    border-bottom-color: $font-color;
+  }
+  &.navbar .nav{
+    > li.active > a{
+      color: $hover-color;
+      @include color-schema($bg-color, 5%, 2.5%);
+    }
+  }
+  .open > a {
+    &,
+    &:hover,
+    &:focus{
+      color: $hover-color;
+    }
+  }
+  .text-muted {
+    color: darken($font-color, 10%) !important;
+  }
+  .text-lt {
+    color: lighten($font-color, 25%) !important;
+  }
+  &.auto,
+  .auto{
+    .list-group-item{
+      border-color: darken($bg-color, 5%) !important;
+      background-color: transparent;
+      &:hover,
+      &:focus,
+      &:active,
+      &.active{
+        @include color-schema($bg-color, 5%, 2.5% !important);
+      }
+    }
+  }
+}
+
+@mixin text-wariant($bg-color, $name) {
+  a.bg-#{$name}:hover{
+    background-color: darken($bg-color, 5%);
+  }
+  a.text-#{$name}:hover{
+    color: darken($bg-color, 5%);
+  }
+  .text-#{$name}{
+    color: $bg-color;
+  }
+  .text-#{$name}-lt{
+    color: lighten($bg-color, 5%);
+  }
+  .text-#{$name}-lter{
+    color: lighten($bg-color, 10%);
+  }
+  .text-#{$name}-dk{
+    color: darken($bg-color, 5%);
+  }
+  .text-#{$name}-dker{
+    color: darken($bg-color, 10%);
+  }
+}
+
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Button variants
+// -------------------------
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+@mixin button-variant($color, $background, $border) {
+  color: $color !important;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle & {
+    color: $color !important;
+    background-color: darken($background, 5%);
+        border-color: darken($border, 8%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle & {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+          border-color: $border
+    }
+  }
+}
+
+@mixin translateZ($z) {
+  -webkit-transform: translateZ($z);
+    -ms-transform: translateZ($z);
+     -o-transform: translateZ($z);
+      transform: translateZ($z);
+}
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Single side border-radius
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+   border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+
+// Drop shadows
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+
+// Transitions
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
+@mixin transition-delay($transition-delay) {
+  -webkit-transition-delay: $transition-delay;
+          transition-delay: $transition-delay;
+}
+@mixin transition-duration($transition-duration) {
+  -webkit-transition-duration: $transition-duration;
+          transition-duration: $transition-duration;
+}
+@mixin transition-transform($transition) {
+  -webkit-transition: -webkit-transform $transition;
+     -moz-transition: -moz-transform $transition;
+       -o-transition: -o-transform $transition;
+          transition: transform $transition;
+}
+
+// Transformations
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+      -ms-transform: rotate($degrees); // IE9+
+          transform: rotate($degrees);
+}
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+      -ms-transform: scale($ratio); // IE9+
+          transform: scale($ratio);
+}
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9+
+          transform: translate($x, $y);
+}
+@mixin skew($x, $y) {
+  -webkit-transform: skew($x, $y);
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
+          transform: skew($x, $y);
+}
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is `visible`, but can be changed to `hidden`
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+@mixin backface-visibility($visibility) {
+  -webkit-backface-visibility: $visibility;
+     -moz-backface-visibility: $visibility;
+          backface-visibility: $visibility;
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+// Resize anything
+@mixin resizable($direction) {
+  resize: $direction; // Options: horizontal, vertical, both
+  overflow: auto; // Safari fix
+}
+
+// CSS3 Content Columns
+@mixin content-columns($column-count, $column-gap: $grid-gutter-width) {
+  -webkit-column-count: $column-count;
+     -moz-column-count: $column-count;
+          column-count: $column-count;
+  -webkit-column-gap: $column-gap;
+     -moz-column-gap: $column-gap;
+          column-gap: $column-gap;
+}
+
+// Optional hyphenation
+@mixin hyphens($mode: auto) {
+  word-wrap: break-word;
+  -webkit-hyphens: $mode;
+     -moz-hyphens: $mode;
+      -ms-hyphens: $mode; // IE10+
+       -o-hyphens: $mode;
+          hyphens: $mode;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=#{opacity-ie});
+}

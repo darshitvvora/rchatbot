@@ -1,0 +1,77 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test nyc --reporter=text mocha --opts .mocharc server/api/**/*.spec.js --exit | grep -v '100'",
+    "lint": "eslint --fix --ext .js --ignore-path .gitignore .",
+    "validate": "npm ls",
+    "start:lambda": "nodemon server/app",
+    "build": "grunt build",
+    "maildev": "maildev --outgoing-host mail1.quezx.com --outgoing-user 'notifications@quezx.com' --outgoing-pass 'fD[2;2}C!*&q4MAa^;' --outgoing-port 587",
+    "start": "node server/app",
+    "migrate": "DEBUG=s.*  sequelize db:migrate;",
+    "seed": " DEBUG=s.*  sequelize db:seed:all",
+    "email-build": "node server/emails build",
+    "email-update-send": "nodemon server/emails serve",
+    "email-deploy": "DEBUG=q-* node server/emails deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quezx/lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quezx/lambda/issues"
+  },
+  "homepage": "https://github.com/quezx/lambda#readme",
+  "dependencies": {
+    "addressparser": "^1.0.1",
+    "aws-sdk": "^2.229.1",
+    "bluebird": "^3.3.5",
+    "body-parser": "^1.13.3",
+    "debug": "^4.1.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.3",
+    "express-rate-limit": "^2.4.0",
+    "fs-promise": "^2.0.3",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.4.0",
+    "mailcomposer": "^4.0.2",
+    "minio": "^2.0.1",
+    "moment": "^2.11.2",
+    "morgan": "~1.6.1",
+    "mysql": "^2.11.1",
+    "node-minio": "^1.0.2",
+    "nodemailer": "^3.1.1",
+    "nodemailer-html-to-text": "^2.1.0",
+    "request": "^2.69.0",
+    "request-promise": "^4.1.1",
+    "sequelize": "^4.37.8",
+    "sequelize-cli": "^4.0.0",
+    "winston": "^2.2.0",
+    "winston-daily-rotate-file": "^3.10.0",
+    "winston-raven-sentry": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "mocha": "^5.1.1",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.8.0",
+    "precommit-hook": "^3.0.0",
+    "semantic-release": "^15.7.0",
+    "supertest": "^3.0.0"
+  },
+  "private": true,
+  "pre-commit": [
+    "lint"
+  ],
+  "engines": {
+    "node": "^8.11.0",
+    "npm": "^5.6.0"
+  }
+}

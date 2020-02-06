@@ -1,0 +1,4 @@
+.wrapper(ng-if='$ctrl.error')
+  h3.h3(ng-bind='$ctrl.error.code')
+  h3.text-danger.h3(ng-bind='$ctrl.error.error')
+  h4.h4(ng-bind='$ctrl.error.error_description')
