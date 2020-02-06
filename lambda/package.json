@@ -38,7 +38,7 @@
     "express-rate-limit": "^2.4.0",
     "fs-promise": "^2.0.3",
     "handlebars": "^4.0.5",
-    "lodash": "^4.4.0",
+    "lodash": "^4.17.13",
     "mailcomposer": "^4.0.2",
     "minio": "^2.0.1",
     "moment": "^2.11.2",
