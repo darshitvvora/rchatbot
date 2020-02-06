@@ -42,7 +42,7 @@
     "mailcomposer": "^4.0.2",
     "minio": "^2.0.1",
     "moment": "^2.11.2",
-    "morgan": "~1.6.1",
+    "morgan": "~1.9.1",
     "mysql": "^2.11.1",
     "node-minio": "^1.0.2",
     "nodemailer": "^3.1.1",
