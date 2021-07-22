@@ -65,7 +65,7 @@
     "winston-daily-rotate-file": "^3.10.0",
     "winston-raven-sentry": "^1.0.1",
     "wkhtmltopdf": "^0.3.4",
-    "xlsx": "^0.15.1"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.5",
