@@ -122,7 +122,7 @@
     "isparta-loader": "^2.0.0",
     "istanbul": "~0.4.1",
     "istanbul-instrumenter-loader": "^0.2.0",
-    "karma": "~0.13.3",
+    "karma": "~6.3.14",
     "karma-chai-plugins": "~0.7.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^0.5.3",
