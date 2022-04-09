@@ -41,7 +41,7 @@
     "lodash": "^4.4.0",
     "mailcomposer": "^4.0.2",
     "minio": "^2.0.1",
-    "moment": "^2.11.2",
+    "moment": "^2.29.2",
     "morgan": "~1.6.1",
     "mysql": "^2.11.1",
     "node-minio": "^1.0.2",
