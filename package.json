@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/app.js",
   "dependencies": {
-    "angular": "~1.6.0",
+    "angular": "~1.8.3",
     "angular-animate": "~1.6.0",
     "angular-base64-upload": "^0.1.19",
     "angular-bootstrap-calendar": "^0.21.4",
